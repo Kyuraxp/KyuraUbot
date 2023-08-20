@@ -191,7 +191,7 @@ async def start_(client: Client, message: Message):
      disable_web_page_preview=True
     )
     
-"""
+
 @app.on_message(filters.command("aktif") & ~filters.via_bot)
 async def activate_user(client, message):
     try:
@@ -209,7 +209,7 @@ async def activate_user(client, message):
     expire_date = now + relativedelta(months=duration)
     await set_expired_date(user_id, expire_date)
     await message.reply(f"User {user_id} telah diaktifkan selama {duration} bulan.")
-"""
+
 
 @app.on_message(filters.command("cekaktif") & ~filters.via_bot)
 async def check_active(client, message):
