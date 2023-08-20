@@ -20,6 +20,7 @@ MONGO_URL = getenv("MONGO_URL", "")
 BOT_TOKEN = getenv("BOT_TOKEN", "")
 BOT_WORKERS = int(getenv("BOT_WORKERS", "4"))
 OPENAI_API = getenv("OPENAI_API")
+BOTLOG_CHATID = int(getenv("BOTLOG_CHATID") or 0)
 SUPPORT_GROUP = getenv("SUPPORT_GROUP")
 GIT_TOKEN = getenv("GIT_TOKEN") #personal access token
 REPO_URL = getenv("REPO_URL")
