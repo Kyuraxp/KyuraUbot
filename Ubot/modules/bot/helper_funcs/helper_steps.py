@@ -18,7 +18,7 @@
 """ STEP FIVE """
 
 
-from telegram import (
+from ubotlibs.telegram import (
     Message
 )
 from Ubot.modules.bot.helper_funcs.my_telegram_org  import *
