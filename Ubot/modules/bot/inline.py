@@ -102,10 +102,8 @@ async def alive_function(message, answers):
         remaining_days = "Belum Ditetapkan"
     msg = (f"<b><u>Pyro Project</b></u>\n"
         f"       <b><u>status</u> : {status} </b>\n"
-        f"       <u>users</u> : <code><i>{bacot}</i></code>\n"
         f"       <u>ping_dc</u> : <code><i>{ping} ms</i></code>\n"
         f"       <u>users_count</u> : <code><i>{users} users</i></code>\n"
-        f"       <u>group_count</u> : <code><i>{group} group</i></code>\n"
         f"       <u>expired</u> : <code><i>{remaining_days}</i></code>\n"
         f"       <u>uptime</u> : <code><i>{uptime}</i></code>\n")
     answers.append(
