@@ -18,6 +18,7 @@ gitpython
 httpx[http2]
 humanize
 gtts
+pykeyboard
 schedule
 lottie
 numpy
@@ -29,11 +30,8 @@ opencv-python-headless
 psutil
 dnspython==2.3.0
 psycopg2-binary
-ptable
 pyrogram==2.0.53
 pymongo
-python-telegram-bot==13.1
-pykeyboard
 pyromod==1.1.0
 pytube
 python-dotenv
