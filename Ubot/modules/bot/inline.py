@@ -25,7 +25,7 @@ from pyrogram import *
 from pyrogram.types import *
 from Ubot.core import *
 from Ubot.core.db import *
-from pyrogram.raw.core.primitives.vector import write
+from pyrogram.raw.core.primitives.vector import *
 from pyrogram.raw.functions import Ping
 from ubotlibs import BOT_VER
 import config
