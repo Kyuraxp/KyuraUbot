@@ -12,8 +12,8 @@ from itertools import count
 from pyrogram import Client, enums, filters
 from pyrogram.types import *
 from Ubot import CMD_HELP, StartTime, app, ids
-from Ubot.core import prefix
-from Ubot.core.db.mongo import db
+#from Ubot.core import prefix
+#from Ubot.core.db.mongo import db
 from Ubot.core.db import check_and_grant_user_access, delete_user_access
 from . import *
 
@@ -22,7 +22,7 @@ load_dotenv()
 session_counter = count(1)
 
 
-
+"""
 @Client.on_message(filters.command(["sp", "setprefix"], prefix) & filters.me)
 async def setprefix(client, message):
     user_id = client.me.id
@@ -33,6 +33,7 @@ async def setprefix(client, message):
         restart()
     else:
         await message.edit("**The prefix must not be empty!**")
+"""
 
 @Client.on_message(filters.command(["prem"], "") & filters.me)
 async def handle_grant_access(client: Client, message: Message):
