@@ -111,7 +111,7 @@ async def recv_tg_tfa_message(_, message: Message):
         accesdb = db.acces
         accesdb.users.delete_one({'user_id': int(message.chat.id)})
         try:
-            await message.reply_text("**Tunggu Selama 2 Menit Kemudian Ketik .ping Untuk Mengecek Bot.**")
+            await message.reply_text("**Tunggu Selama 2 Menit Kemudian Ketik Ping Untuk Mengecek Bot.**")
             LOGGER(__name__).info("BOT SERVER RESTARTED !!")
         except BaseException as err:
             LOGGER(__name__).info(f"{err}")
