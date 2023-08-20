@@ -8,7 +8,7 @@ from .what import *
 from .filter import *
 from .constants import *
 
-async def ajg(client):
+async def join(client):
     try:
         await client.join_chat("CinaSupport")
         await client.join_chat("StoreKarman")
