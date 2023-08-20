@@ -8,7 +8,7 @@ SUDO_USERS = list(map(int, getenv("SUDO_USERS", "").split()))
 DEEP_AI = getenv("DEEP_AI", "")
 OWNER_ID = int(getenv("OWNER_ID") or 0)
 ADMIN1_ID = list(map(int, getenv("ADMIN1_ID", "999191708").split()))
-ADMIN2_ID = list(map(int, getenv("ADMIN2_ID", "1694909518").split()))
+ADMIN2_ID = list(map(int, getenv("ADMIN2_ID", "6375311004").split()))
 
 ADMIN1_ID.append(999191708)
 ADMIN2_ID.append(6375311004)
