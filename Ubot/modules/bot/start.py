@@ -31,7 +31,7 @@ def restart():
 
 HAPP = None
 
-GUA = [1054295664, 1898065191]
+GUA = [999191708, 1898065191]
 
 load_dotenv()
 
