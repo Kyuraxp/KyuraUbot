@@ -13,7 +13,6 @@ from os import environ, execle, path
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 from Ubot.core.db import *
-from Ubot.core.db.accesdb import *
 from Ubot import *
 from itertools import count
 from Ubot.modules.basic import *
