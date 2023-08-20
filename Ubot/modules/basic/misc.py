@@ -17,7 +17,7 @@ from ubotlibs.ubot.helper.PyroHelpers import ReplyCheck
 from pyrogram import __version__, filters, Client
 from pyrogram.types import Message
 
-from Ubot import START_TIME, SUDO_USER, app
+from Ubot import START_TIME, app
 from ubotlibs.ubot.database.accesdb import *
 from Ubot.modules.bot.inline import get_readable_time
 
