@@ -1,3 +1,5 @@
+
+"""
 import json
 import threading
 import dns.resolver
@@ -79,3 +81,4 @@ collection = db.get_collection(user_id, module)
 prefix = db.get("core.main", "prefix", ".")
 
 db.close()
+ """
