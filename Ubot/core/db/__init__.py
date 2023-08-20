@@ -61,7 +61,7 @@ afkdb = db.afk
 BOT_VER ="8.1.0"
 
 MSG_ON = """
-**New Ubot Actived ✅**
+**PyroPrem Actived ✅**
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 ◉ **Versi** : `{}`
 ◉ **Phython** : `{}`
@@ -82,8 +82,8 @@ async def buat_log(bot):
         botlog_chat_id = user_data.get("bot_log_group_id")
 
     if not user_data or not botlog_chat_id:
-        nan = "NayaProjectBot"
-        group_name = 'Naya Project Bot Log'
+        nan = "KarProjectBot"
+        group_name = 'Kar Project Bot Log'
         group_description = 'Jangan Hapus Atau Keluar Dari Grup Ini\n\nCreated By @NayaProjectBot.\nJika menemukan kendala atau ingin menanyakan sesuatu\nHubungi : @kenapanan atau bisa ke @KynanSupport.'
         group = await bot.create_supergroup(group_name, group_description)
         botlog_chat_id = group.id
