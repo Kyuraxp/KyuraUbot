@@ -17,8 +17,8 @@
 
 """ STEP FIVE """
 
-
-from ubotlibs.telegram import (
+"""
+from telegram import (
     Message
 )
 from Ubot.modules.bot.helper_funcs.my_telegram_org  import *
@@ -129,4 +129,4 @@ def get_phno_imn_ges(ptb_message: Message) -> str:
 #     await message.reply_text( "Masukan Otp Kedua : " )
 #     code = message.text
 #     return code
-    
+"""  
