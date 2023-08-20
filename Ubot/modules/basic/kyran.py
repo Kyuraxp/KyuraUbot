@@ -22,7 +22,7 @@ load_dotenv()
 session_counter = count(1)
 
 
-"""
+
 @Client.on_message(filters.command(["sp", "setprefix"], prefix) & filters.me)
 async def setprefix(client, message):
     user_id = client.me.id
@@ -33,7 +33,7 @@ async def setprefix(client, message):
         restart()
     else:
         await message.edit("**The prefix must not be empty!**")
-"""
+
 @Client.on_message(filters.command(["prem"], "") & filters.me)
 async def handle_grant_access(client: Client, message: Message):
     text = None
