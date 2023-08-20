@@ -57,6 +57,7 @@ logdb = db.gruplog
 blchatdb = db.blchat
 pmdb = db.pmpermit
 afkdb = db.afk
+prefdb = db.prefix
 
 BOT_VER ="8.1.0"
 
@@ -70,6 +71,12 @@ MSG_ON = """
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 """
 
+async def get_prefix():
+    tai = await prefdb.users.find_one({"user_id": "core.main"})
+    prefix = tai.get("prefix", ".")
+    return prefix
+
+prefix = get_prefix()
 
         
 async def buat_log(bot):
