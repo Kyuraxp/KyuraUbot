@@ -51,7 +51,7 @@ async def get_readable_time(seconds: int) -> str:
     count = 0
     up_time = ""
     time_list = []
-    time_suffix_list = ["s", "m", "Jam", "Hari"]
+    time_suffix_list = ["s", "m", "h", "d"]
 
     while count < 4:
         count += 1
@@ -83,13 +83,13 @@ async def alive_function(message, answers):
         elif dialog.chat.type in (enums.ChatType.GROUP, enums.ChatType.SUPERGROUP):
             group += 1
     if message._client.me.id in BLACK:
-        status = "OWNER"
+        status = "[founder]"
         remaining_days = "None"
     elif message._client.me.id in WHITE:
-        status = "ADMINS"
+        status = "[ADMINS]"
         remaining_days = "None"
     else:
-        status = "MEMBER"
+        status = "[Member]"
     start = datetime.now()
     buttons = support()
     ex = await message._client.get_me()
@@ -100,7 +100,7 @@ async def alive_function(message, answers):
     remaining_days = await get_expired_date(ex.id)
     if remaining_days is None:
         remaining_days = "Belum Ditetapkan"
-    msg = (f"<b><u>New Project</b></u>\n"
+    msg = (f"<b><u>Pyro Project</b></u>\n"
         f"       <b><u>status</u> : {status} </b>\n"
         f"       <u>users</u> : <code><i>{bacot}</i></code>\n"
         f"       <u>ping_dc</u> : <code><i>{ping} ms</i></code>\n"
