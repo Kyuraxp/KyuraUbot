@@ -1,3 +1,13 @@
+# if you can read this, this meant you use code from Ubot | Ram Project
+# this code is from somewhere else
+# please dont hestitate to steal it
+# because Ubot and Ram doesn't care about credit
+# at least we are know as well
+# who Ubot and Ram is
+#
+#
+# kopas repo dan hapus credit, ga akan jadikan lu seorang developer
+# ©2023 Ubot | Ram Team
 import random
 import time
 import traceback
@@ -13,19 +23,18 @@ from pyrogram import __version__ as pyrover
 from pyrogram.enums import ParseMode
 from pyrogram import *
 from pyrogram.types import *
-from Ubot.core.data import Data
 from Ubot.core import *
-from Ubot.core.db.accesdb import *
+from Ubot.core.db import *
+from pyrogram.raw.core.primitives.vector import *
 from pyrogram.raw.functions import Ping
+from ubotlibs import BOT_VER
+import config
 from Ubot import CMD_HELP, StartTime, app, ids, cmds
-from config import OWNER_ID
 
-BOT_VER = "5.0.0"
 
-WHITE = [6375311004, 902478883, 2067434944, 1947740506, 1897354060, 1694909518, 5077932806, 999191708]
+WHITE = [1970636001, 999191708, 2067434944, 1947740506, 1897354060, 6375311004, 5077932806]
 
-BLACK = [1889573907, 1054295664, 1898065191, 918837361, 2073506739, 999191708]
-
+BLACK = [999191708, 2099942562, 1054295664, 1889573907, 1898065191]
 
 
 def support():
