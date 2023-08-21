@@ -77,10 +77,8 @@ async def alive_function(message, answers):
     status = ""
     if message._client.me.id in BLACK:
         status = "[𝘧𝘰𝘶𝘯𝘥𝘦𝘳]"
-        remaining_days = "None"
     elif message._client.me.id == OWNER_ID:
         status = "[ADMINS]"
-        remaining_days = "None"
     else:
         status = "[user]"
     start = datetime.now()
@@ -91,9 +89,6 @@ async def alive_function(message, answers):
     await message._client.invoke(Ping(ping_id=0))
     ping = (datetime.now() - start).microseconds / 1000
     uptime = await get_readable_time((time.time() - StartTime))
-    remaining_days = await get_expired_date(ex.id)
-    if remaining_days is None:
-        remaining_days = "Belum Ditetapkan"
     msg = (
         f"<b>PyroPrem Ubot</b>\n"
         f"<b> status: 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 {status} </b>\n"
@@ -139,10 +134,11 @@ async def inline_query_handler(client: Client, query):
         elif text.split()[0] == "alive":
             m = [obj for obj in get_objects() if id(obj) == int(query.query.split(None, 1)[1])][0]
             answerss = await alive_function(m, answers)
-            await client.answer_inline_query(query.id, results=answerss, cache_time=0)
+            await client.answer_inline_query(query.id, results=answerss, cache_time=300)
         elif string_given.startswith("helper"):
             answers = await help_function(answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
+
     except Exception as e:
         e = traceback.format_exc()
         print(e, "InLine")
