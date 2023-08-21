@@ -91,8 +91,11 @@ async def alive_function(message, answers):
     await message._client.invoke(Ping(ping_id=0))
     ping = (datetime.now() - start).microseconds / 1000
     uptime = await get_readable_time((time.time() - StartTime))
+    remaining_days = await get_expired_date(ex.id)
+    if remaining_days is None:
+        remaining_days = "Belum Ditetapkan"
     msg = (
-        f"<b>Karman-Ubot</b>\n"
+        f"<b>PyroPrem Ubot</b>\n"
         f"<b> status: 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 {status} </b>\n"
         f"    <b> expired:</b> <code>{remaining_days}</code>\n"
         f"    <b> ping_ubot:</b> <code>{ping} ms</code>\n"
