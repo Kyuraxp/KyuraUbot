@@ -23,7 +23,7 @@ from Ubot.modules.bot.inline import get_readable_time
 
 
 
-@Client.on_message(filters.command(["alive"], "") & filters.me)
+@Client.on_message(filters.command(["alive"], ".") & filters.me)
 async def alive(client: Client, message: Message):
     bot_username = (await app.get_me()).username
     try:
