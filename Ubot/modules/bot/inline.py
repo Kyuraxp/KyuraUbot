@@ -74,28 +74,39 @@ async def get_readable_time(seconds: int) -> str:
     
 
 async def alive_function(message, answers):
-    status = ""
+    users = 0
+    group = 0
+    remaining_days = "Belum Ditetapkan"
+    expired_date = None
+    async for dialog in message._client.get_dialogs():
+        if dialog.chat.type == enums.ChatType.PRIVATE:
+            users += 1
+        elif dialog.chat.type in (enums.ChatType.GROUP, enums.ChatType.SUPERGROUP):
+            group += 1
     if message._client.me.id in BLACK:
-        status = "[𝘧𝘰𝘶𝘯𝘥𝘦𝘳]"
-    elif message._client.me.id == OWNER_ID:
+        status = "[founder]"
+        remaining_days = "None"
+    elif message._client.me.id in WHITE:
         status = "[ADMINS]"
+        remaining_days = "None"
     else:
-        status = "[user]"
+        status = "[Member]"
     start = datetime.now()
     buttons = support()
     ex = await message._client.get_me()
-    user = len(ids)
-    remaining_days = await get_expired_date(ex.id)
+    bacot = len(ids)
     await message._client.invoke(Ping(ping_id=0))
     ping = (datetime.now() - start).microseconds / 1000
     uptime = await get_readable_time((time.time() - StartTime))
-    msg = (
-        f"<b>PyroPrem Ubot</b>\n"
-        f"<b> status: 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 {status} </b>\n"
-        f"    <b> expired:</b> <code>{remaining_days}</code>\n"
-        f"    <b> ping_ubot:</b> <code>{ping} ms</code>\n"
-        f"    <b> peer_ubot:</b> <code>{user}</code>\n"
-        f"    <b> uptime_ubot:</b> <code>{uptime}</code>\n")
+    remaining_days = await get_expired_date(ex.id)
+    if remaining_days is None:
+        remaining_days = "Belum Ditetapkan"
+    msg = (f"<b><u>PyroPrem</b></u>\n"
+        f"       <b><u>status</u> : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 {status} </b>\n"
+        f"       <b>ping_dc</u> : <code><b>{ping} ms</b></code>\n"
+        f"       <b>users_count</u> : <code><b>{users} users</b></code>\n"
+        f"       <b>expired</u> : <code><b>{remaining_days}</b></code>\n"
+        f"       <b>uptime</u> : <code><b>{uptime}</b></code>\n")
     answers.append(
         InlineQueryResultArticle(
             title="alive",
@@ -134,11 +145,10 @@ async def inline_query_handler(client: Client, query):
         elif text.split()[0] == "alive":
             m = [obj for obj in get_objects() if id(obj) == int(query.query.split(None, 1)[1])][0]
             answerss = await alive_function(m, answers)
-            await client.answer_inline_query(query.id, results=answerss, cache_time=300)
+            await client.answer_inline_query(query.id, results=answerss, cache_time=0)
         elif string_given.startswith("helper"):
             answers = await help_function(answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
-
     except Exception as e:
         e = traceback.format_exc()
         print(e, "InLine")
