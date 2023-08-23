@@ -25,7 +25,7 @@ from pyrogram import (
 )
 from Ubot.logging import LOGGER
 from config import *
-cmds = None [".", "+", "$", "?", "×", "!", "^", "#", "&", "-", "]", "√", "÷", "="]
+cmds = [None, ".", "+", "$", "?", "×", "!", "^", "#", "&", "-", "]", "√", "÷", "="]
 cmd_help = {}
 clients = []
 ids = []
