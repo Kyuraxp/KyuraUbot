@@ -103,13 +103,12 @@ async def alive_function(message, answers):
         f"    <b> groups_count :</b> <code>{group} group</code>\n"
         f"    <b> expired :</b> <i>{remaining_days}</i>\n"
         f"    <b> uptime :</b> <code>{uptime}</code>\n")
-    answers.append(
-        InlineQueryResultArticle(
-            title="alive",
-            input_message_content=InputTextMessageContent(
-                msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
-            ),
-            reply_markup=InlineKeyboardMarkup(buttons)))
+    await _.send_message(
+        message.chat.id,
+        msg,
+        parse_mode=ParseMode.HTML,
+        reply_markup=InlineKeyboardMarkup(buttons)
+        )
     return answers
 
 
