@@ -48,7 +48,6 @@ def support():
     ]
     return buttons
 
-async def get_readable_time(seconds: int) -> str:
     count = 0
     up_time = ""
     time_list = []
@@ -65,7 +64,7 @@ async def get_readable_time(seconds: int) -> str:
     for x in range(len(time_list)):
         time_list[x] = str(time_list[x]) + time_suffix_list[x]
     if len(time_list) == 4:
-        up_time += time_list.pop() + ", "
+        up_time += f"{time_list.pop()}, "
 
     time_list.reverse()
     up_time += ":".join(time_list)
@@ -76,37 +75,34 @@ async def get_readable_time(seconds: int) -> str:
 async def alive_function(message, answers):
     users = 0
     group = 0
-    remaining_days = "Belum Ditetapkan"
-    expired_date = None
     async for dialog in message._client.get_dialogs():
         if dialog.chat.type == enums.ChatType.PRIVATE:
             users += 1
         elif dialog.chat.type in (enums.ChatType.GROUP, enums.ChatType.SUPERGROUP):
             group += 1
     if message._client.me.id in BLACK:
-        status = "[founder]"
-        remaining_days = "None"
-    elif message._client.me.id in WHITE:
-        status = "[ADMINS]"
-        remaining_days = "None"
+        status = "[Founder]"
+    elif message._client.me.id is WHITE:
+        status = "[Admin]"
     else:
-        status = "[Member]"
+        status = "[user]"
     start = datetime.now()
     buttons = support()
     ex = await message._client.get_me()
-    bacot = len(ids)
+    user = len(ids)
+    remaining_days = "None"
     await message._client.invoke(Ping(ping_id=0))
     ping = (datetime.now() - start).microseconds / 1000
     uptime = await get_readable_time((time.time() - StartTime))
-    remaining_days = await get_expired_date(ex.id)
-    if remaining_days is None:
-        remaining_days = "Belum Ditetapkan"
-    msg = (f"<b><u>PyroPrem</b></u>\n"
-        f"       <b><u>status</u> : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 {status} </b>\n"
-        f"       <b>ping_dc</u> : <code><b>{ping} ms</b></code>\n"
-        f"       <b>users_count</u> : <code><b>{users} users</b></code>\n"
-        f"       <b>expired</u> : <code><b>{remaining_days}</b></code>\n"
-        f"       <b>uptime</u> : <code><b>{uptime}</b></code>\n")
+    msg = (
+        f"<b>PyroPrem</b>\n"
+        f"    <b> status : {status} </b>\n"
+        f"    <b> users :</b> <code>{user}</code>\n"
+        f"    <b> ping_dc :</b> <code>{ping} ms</code>\n"
+        f"    <b> users_count :</b> <code>{users} users</code>\n"
+        f"    <b> groups_count :</b> <code>{group} group</code>\n"
+        f"    <b> expired :</b> <i>{remaining_days}</i>\n"
+        f"    <b> uptime :</b> <code>{uptime}</code>\n")
     answers.append(
         InlineQueryResultArticle(
             title="alive",
@@ -145,10 +141,11 @@ async def inline_query_handler(client: Client, query):
         elif text.split()[0] == "alive":
             m = [obj for obj in get_objects() if id(obj) == int(query.query.split(None, 1)[1])][0]
             answerss = await alive_function(m, answers)
-            await client.answer_inline_query(query.id, results=answerss, cache_time=0)
+            await client.answer_inline_query(query.id, results=answerss, cache_time=10)
         elif string_given.startswith("helper"):
             answers = await help_function(answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
+
     except Exception as e:
         e = traceback.format_exc()
         print(e, "InLine")
