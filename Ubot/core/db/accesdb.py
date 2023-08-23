@@ -86,7 +86,7 @@ def check_access(func):
         user_id = message.from_user.id
         user_access = await check_user_access(user_id)
         if user_id not in ADMINS and not user_access:
-            await message.reply_text("Maaf, Anda tidak memiliki akses untuk menggunakan bot ini.\n Silakan ke @CinaSupport untuk mendapatkan akses dari Admin disana.")
+            await message.reply_text("This feature is only available for premium users.")
             return
         await func(client, message)
     return wrapper
@@ -125,6 +125,15 @@ async def set_expired_date(user_id, duration):
     schedule.every().day.at("00:00").do(remove_expired)
     asyncio.create_task(schedule_loop())
 
+    
+async def set_expired_days(user_id, duration):
+    days_in_days = 1
+    if duration <= 30:
+        days_in_days = 1 * duration
+    expire_date = datetime.now() + timedelta(days=days_in_days)
+    collection.users.update_one({"_id": user_id}, {"$set": {"expire_date": expire_date}}, upsert=True)
+    schedule.every().day.at("00:00").do(remove_expired)
+    asyncio.create_task(schedule_loop())
 
 
 async def schedule_loop():
