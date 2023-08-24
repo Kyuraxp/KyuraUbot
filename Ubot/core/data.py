@@ -6,6 +6,6 @@ class Data:
    num_basic_modules = len(CMD_HELP)
 
    text_help_menu = (
-        f"**• Help Menu **\n**• Modules: <code>{num_basic_modules} Modules</code>\n**• prefixes **: `{cmds}`"
+        f"**• Help Menu **\n**• Modules: <code>{num_basic_modules} Modules</code>\n**• prefixes **: `None`"
     )
    reopen = [[InlineKeyboardButton("Open", callback_data="reopen")]]
