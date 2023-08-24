@@ -74,42 +74,35 @@ async def get_readable_time(seconds: int) -> str:
     
 
 async def alive_function(message, answers):
-    users = 0
-    group = 0
-    async for dialog in message._client.get_dialogs():
-        if dialog.chat.type == enums.ChatType.PRIVATE:
-            users += 1
-        elif dialog.chat.type in (enums.ChatType.GROUP, enums.ChatType.SUPERGROUP):
-            group += 1
+    status = ""
     if message._client.me.id in BLACK:
-        status = "[Founder]"
-    elif message._client.me.id is WHITE:
-        status = "[Admin]"
+        status = "[𝘖𝘸𝘯𝘦𝘳]"
+    elif message._client.me.id == OWNER_ID:
+        status = "[𝘈𝘥𝘮𝘪𝘯𝘴]"
     else:
         status = "[user]"
     start = datetime.now()
     buttons = support()
     ex = await message._client.get_me()
-    user = len(ids)
     remaining_days = "None"
+    user = len(ids)
     await message._client.invoke(Ping(ping_id=0))
     ping = (datetime.now() - start).microseconds / 1000
     uptime = await get_readable_time((time.time() - StartTime))
     msg = (
-        f"<b>PyroPrem</b>\n"
-        f"    <b> status : {status} </b>\n"
-        f"    <b> users :</b> <code>{user}</code>\n"
-        f"    <b> ping_dc :</b> <code>{ping} ms</code>\n"
-        f"    <b> users_count :</b> <code>{users} users</code>\n"
-        f"    <b> groups_count :</b> <code>{group} group</code>\n"
-        f"    <b> expired :</b> <i>{remaining_days}</i>\n"
-        f"    <b> uptime :</b> <code>{uptime}</code>\n")
-    await _.send_message(
-        message.chat.id,
-        msg,
-        parse_mode=ParseMode.HTML,
-        reply_markup=InlineKeyboardMarkup(buttons)
-        )
+        f"<b>Pepek</b>\n"
+        f"<b> Status: Active {status} </b>\n"
+        f"    <b> expired:</b> <code>{remaining_days}</code>\n"
+        f"    <b> ping_ubot:</b> <code>{ping} ms</code>\n"
+        f"    <b> peer_ubot:</b> <code>{user}</code>\n"
+        f"    <b> uptime_ubot:</b> <code>{uptime}</code>\n")
+    answers.append(
+        InlineQueryResultArticle(
+            title="alive",
+            input_message_content=InputTextMessageContent(
+                msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+            ),
+            reply_markup=InlineKeyboardMarkup(buttons)))
     return answers
 
 
