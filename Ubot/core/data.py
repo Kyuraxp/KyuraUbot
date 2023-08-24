@@ -2,7 +2,8 @@ from pyrogram.types import InlineKeyboardButton, WebAppInfo
 from Ubot.modules.basic import cmds, CMD_HELP
 class Data:
 
-    basic = CMD_HELP
+
+   basic = modules.basic
     
     num_basic_modules = len(basic)
 
