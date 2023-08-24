@@ -1,5 +1,6 @@
 from pyrogram import Client, filters
 from Ubot import cmds
+from Ubot.core import *
 import os
 import sys
 from os import environ, execle, path, remove
