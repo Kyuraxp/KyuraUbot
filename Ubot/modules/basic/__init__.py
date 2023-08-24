@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from Ubot import cmds
+from Ubot import cmds, CMD_HELP
 from Ubot.core import *
 import os
 import sys
