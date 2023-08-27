@@ -46,7 +46,7 @@ class WWW:
 
     NearestDC = "Country: `{}`\n" "Nearest Datacenter: `{}`\n" "This Datacenter: `{}`"
     
-kopi = [
+absen = [
     "**Hadir Mas** 😍",
     "**Mmuaahh** 😘",
     "**Hadir** 🤗",
@@ -96,13 +96,13 @@ async def speed_test(client: Client, message: Message):
     filters.command(["absen"], "") & filters.user(DEVS) & ~filters.me
 )
 async def absen(client: Client, message: Message):
-    await message.reply_text(random.choice(kopi))
+    await message.reply_text(random.choice(absen))
     
 @Client.on_message(
-    filters.command(["naya"], "") & filters.user(DEVS) & ~filters.me
+    filters.command(["yurman"], "") & filters.user(DEVS) & ~filters.me
 )
-async def naya(client, message):
-    await message.reply_text("**Iya Naya Punya Nya Kynan**🤩")
+async def yurman(client, message):
+    await message.reply_text("**Iya kenapa sayang**😘")
 
 
 @Client.on_message(
