@@ -30,7 +30,7 @@ opencv-python-headless
 psutil
 dnspython==2.3.0
 psycopg2-binary
-pyrogram==2.0.53
+Pyrogram==2.0.106
 pymongo
 pyromod==1.1.0
 pytube
