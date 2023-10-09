@@ -43,8 +43,7 @@ class naya:
     def add_handler(self, x_wrapper, naya_filter):
         app.add_handler(MessageHandler(x_wrapper, filters=naya_filter))
 
-CMD_HNDLR = os.getenv("CMD_HNDLR", ".", "+", "!", "$", "?" 
-                     , "√", "×", "*", "-", " ")
+CMD_HNDLR = os.getenv("CMD_HNDLR", ".","!"," ")
 
 def nay(command: list):
     def wrapper(func):
