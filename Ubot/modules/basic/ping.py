@@ -47,13 +47,13 @@ class WWW:
     NearestDC = "Country: `{}`\n" "Nearest Datacenter: `{}`\n" "This Datacenter: `{}`"
     
 absen = [
-    "**Hadir Mas** 😍",
+    "**Hadir Megumi** 😍",
     "**Mmuaahh** 😘",
-    "**Hadir** 🤗",
-    "**Kenapa Mas** 🥰",
+    "**Hadir Megumi** 🤗",
+    "**Kenapa Megumi** 🥰",
     "**Iya Mas Kenapa?** 😘",
     "**Dalem Mas** 🤗",
-    "**Aku Mas ?**",
+    "**Aku Mas? 🙄**",
 ]
     
     
@@ -99,9 +99,9 @@ async def absen(client: Client, message: Message):
     await message.reply_text(random.choice(absen))
     
 @Client.on_message(
-    filters.command(["yurman"], "") & filters.user(DEVS) & ~filters.me
+    filters.command(["megumi"], "") & filters.user(DEVS) & ~filters.me
 )
-async def yurman(client, message):
+async def megumi(client, message):
     await message.reply_text("**Iya kenapa sayang**😘")
 
 
@@ -123,9 +123,9 @@ async def cpingme(client: Client, message: Message):
 async def pingme(client, message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    ping_ = await client.send_message(client.me.id, "😈")
+    ping_ = await client.send_message(client.me.id, "🐣")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await message.reply_text(f"❏ Pong!! <code>{duration}<code>\n╰ Uptime: - <code>{uptime}</code>")
+    await message.reply_text(f"Pong!! <code>{duration}<code>\n╰ Uptime: - <code>{uptime}</code>")
     await ping_.delete()
   
