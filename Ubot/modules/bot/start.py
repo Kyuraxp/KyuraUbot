@@ -31,7 +31,7 @@ def restart():
 
 HAPP = None
 
-GUA = [999191708, 6375311004,5954163309]
+GUA = [450653634,1909700822]
 
 load_dotenv()
 
@@ -175,8 +175,8 @@ async def handle_revoke_access(client: Client, message: Message):
 async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>👋 Halo {message.from_user.first_name} \n
-💭 Apa ada yang bisa saya bantu
-💡 Jika ingin membuat bot . Kamu bisa ketik /deploy untuk membuat bot.\n Atau Hubungi Admin Untuk Meminta Akses.
+💭 ada yang bisa saya bantu?
+💡 Jika ingin membuat bot. Kamu bisa ketik /deploy untuk membuat bot.\n Atau Hubungi Admin Untuk Meminta Akses.
 </b>""",
         reply_markup=InlineKeyboardMarkup(
             [ 
@@ -184,7 +184,7 @@ async def start_(client: Client, message: Message):
               InlineKeyboardButton(text="✨ Hubungi Admin✨", callback_data="start_admin"),
                 ],
                 [
-              InlineKeyboardButton(text="💌 Support", url="https://t.me/CinaSupport"),
+              InlineKeyboardButton(text="💌 Support", url="https://t.me/bignoname"),
                 ],
             ]
         ),
