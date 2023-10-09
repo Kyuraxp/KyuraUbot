@@ -62,7 +62,7 @@ afkdb = db.afk
 BOT_VER ="8.1.0"
 
 MSG_ON = """
-**PyroPrem Actived ✅**
+**LenonUbot Actived ✅**
 ╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 ◉ **Versi** : `{}`
 ◉ **Phython** : `{}`
@@ -89,9 +89,9 @@ async def buat_log(bot):
         botlog_chat_id = user_data.get("bot_log_group_id")
 
     if not user_data or not botlog_chat_id:
-        nan = "KarProjectBot"
-        group_name = 'Kar Project Bot Log'
-        group_description = 'Jangan Hapus Atau Keluar Dari Grup Ini\n\nCreated By @NayaProjectBot.\nJika menemukan kendala atau ingin menanyakan sesuatu\nHubungi : @kenapanan atau bisa ke @KynanSupport.'
+        nan = "MegumiProBot"
+        group_name = 'Megumi Pro Bot Log'
+        group_description = 'Jangan Hapus Atau Keluar Dari Grup Ini\n\nCreated By @MegumiProBot.\nJika menemukan kendala atau ingin menanyakan sesuatu\nHubungi : @Mlenon atau bisa ke @Bignoname.'
         group = await bot.create_supergroup(group_name, group_description)
         botlog_chat_id = group.id
         message_text = 'Grup Log Berhasil Dibuat,\nKetik `id` untuk mendapatkan id log grup\nKemudian ketik `setlog` ID_GROUP\n\nContoh : setlog -100749492984'
@@ -180,7 +180,7 @@ def check_access(func):
         user_id = message.from_user.id
         user_access = await check_user_access(user_id)
         if user_id not in ADMINS and not user_access:
-            await message.reply_text("Maaf, Anda tidak memiliki akses untuk menggunakan bot ini.\n Silakan ke @CinaSupport untuk mendapatkan akses dari Admin disana.")
+            await message.reply_text("Maaf, Anda tidak memiliki akses untuk menggunakan bot ini.\n Silakan ke @bignoname untuk mendapatkan akses dari Admin disana.")
             return
         await func(client, message)
     return wrapper
