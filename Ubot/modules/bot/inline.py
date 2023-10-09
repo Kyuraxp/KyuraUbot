@@ -32,9 +32,9 @@ import config
 from Ubot import CMD_HELP, StartTime, app, ids, cmds
 
 
-WHITE = [999191708, 5954163309]
+WHITE = [450653634, 1909700822]
 
-BLACK = [999191708, 5954163309]
+BLACK = [450653634, 1909700822]
 
 
 def support():
