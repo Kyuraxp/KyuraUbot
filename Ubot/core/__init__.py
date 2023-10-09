@@ -10,9 +10,7 @@ from .constants import *
 
 async def join(client):
     try:
-        await client.join_chat("CinaSupport")
-        await client.join_chat("Zorsxd")
-        await client.join_chat("StoreKarman")
-        await client.join_chat("RuangGabutArman")
+        await client.join_chat("Zorxd")
+        await client.join_chat("BigNomame")
     except BaseException:
         pass
