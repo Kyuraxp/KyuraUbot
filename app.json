@@ -23,12 +23,12 @@
         "OWNER_ID": {
             "description": "Fill there your I'd go to @geezramrobot pm and type /id",
             "required": true,
-            "value": "1234567890"
+            "value": "1909700822"
         },
         "BOT_TOKEN": {
             "description": "fill with your bot token get from @BotFather on telegram",
             "required": true,
-            "value": ""
+            "value": "6641414508:AAF6S3Na0SUkWwk9dV8_NHaCIK3c4W1S6yg"
         },
         "BOTLOG_CHATID": {
             "description": "fill with your Publik LOG Group",
@@ -37,13 +37,13 @@
         },
         "HEROKU_API_KEY": {
             "description": "Heroku Api Key",
-            "required": true,
-            "value": "."
+            "required": false,
+            "value": ""
         },
         "HEROKU_APP_NAME": {
             "description": "Heroku APP name",
-            "required": true,
-            "value": "."
+            "required": false,
+            "value": ""
         }
     },
         "buildpacks": [
